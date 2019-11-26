@@ -6,48 +6,31 @@
     <content><![CDATA[<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div id="hbe-security">
   <div class="hbe-input-container">
-  <input type="password" class="hbe-form-control" id="pass" placeholder="博文加密，发布小众化内容的解决方案。" />
-    <label for="pass">博文加密，发布小众化内容的解决方案。</label>
+  <input type="password" class="hbe-form-control" id="pass" placeholder="请输入密码" />
+    <label for="pass">请输入密码</label>
     <div class="bottom-line"></div>
   </div>
 </div>
 <div id="decryptionError" style="display: none;">Incorrect Password!</div>
 <div id="noContentError" style="display: none;">No content to display!</div>
 <div id="encrypt-blog" style="display:none">
-U2FsdGVkX1+XSAxsU1ccGvIHZjL6wRWcaQ19O2dOFojZvdJqBVPWV3xop7vNh0/AjYLWJe2PxBMAWh47LB5EdcEkI/8LqjSRsa8NbpywaMVKo6FO4czOC60abVbz8mINaiZnb1YCu97TgLpQv7ugBrvmWqI/ON7Z9Ub7ldHq7spms0Q4xyDPAOdUQhtQFkRxe48Kovi3Ez56nh2rQdgB2Q==
+U2FsdGVkX19kI1MkbiNE6EOIdtOoykR0HIi9hcgyEaATAU3GyhNTaBxBNLyuHrbP+t8s3K3Y0e5nLcDjWJ9bIQ==
 </div>
-<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+<div id="gitalk-container"></div>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+		<script>
+		var gitalkConfig = {"clientID":"c454adbb530841305c63","clientSecret":"0dd040e2123c5a161aa552ebfdd280d5beb972d0","repo":"unidy2002.github.io","owner":"UNIDY2002","admin":["UNIDY2002"],"distractionFreeMode":false};
+	    gitalkConfig.id = md5(location.pathname);
+		var gitalk = new Gitalk(gitalkConfig);
+	    gitalk.render("gitalk-container");
+	    </script>]]></content>
       <categories>
-        <category>Nothing</category>
+        <category>碎碎念</category>
       </categories>
       <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hello-world</title>
-    <url>/2019/11/25/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<h3 id="Something-else…"><a href="#Something-else…" class="headerlink" title="Something else…"></a>Something else…</h3><p><a href="https://github.com/theme-materialized/hexo-theme-materialized" target="_blank" rel="noopener">theme-materialized官方文档</a></p>
-<p>以及评论区因为我暂时懒得申请GitHub OAuth所以目前只是个空壳哈~</p>
-]]></content>
-      <categories>
-        <category>Nothing</category>
-      </categories>
-      <tags>
-        <tag>测试</tag>
+        <tag>随想</tag>
       </tags>
   </entry>
 </search>
