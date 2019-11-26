@@ -14,7 +14,7 @@
 <div id="decryptionError" style="display: none;">Incorrect Password!</div>
 <div id="noContentError" style="display: none;">No content to display!</div>
 <div id="encrypt-blog" style="display:none">
-U2FsdGVkX1+Rf3GEQDtsKXtFO1YST9UMAYqcR9X6yzI9jRUiNTwRkBBA3UtdEh47YOXERyln2EYEY4W6EUtuexVAi9hdCjmrFZcJPcXDPyrlb8TPe+0q+H8t5JrmEg+oyDATXsjPFSZRdszq4yW3LqsG4Ifw8cPRaWOnWUxfawzFJa++xmWS3Ad93ljjXRCq6tjZ2ZL5rMa6zq5tq9GdiQ==
+U2FsdGVkX1+XSAxsU1ccGvIHZjL6wRWcaQ19O2dOFojZvdJqBVPWV3xop7vNh0/AjYLWJe2PxBMAWh47LB5EdcEkI/8LqjSRsa8NbpywaMVKo6FO4czOC60abVbz8mINaiZnb1YCu97TgLpQv7ugBrvmWqI/ON7Z9Ub7ldHq7spms0Q4xyDPAOdUQhtQFkRxe48Kovi3Ez56nh2rQdgB2Q==
 </div>
 <script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
@@ -40,7 +40,8 @@ U2FsdGVkX1+Rf3GEQDtsKXtFO1YST9UMAYqcR9X6yzI9jRUiNTwRkBBA3UtdEh47YOXERyln2EYEY4W6
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<p>评论区因为我懒得申请GitHub OAuth所以暂时只是个空壳哈~</p>
+<h3 id="Something-else…"><a href="#Something-else…" class="headerlink" title="Something else…"></a>Something else…</h3><p><a href="https://github.com/theme-materialized/hexo-theme-materialized" target="_blank" rel="noopener">theme-materialized官方文档</a></p>
+<p>以及评论区因为我暂时懒得申请GitHub OAuth所以目前只是个空壳哈~</p>
 ]]></content>
       <categories>
         <category>Nothing</category>
