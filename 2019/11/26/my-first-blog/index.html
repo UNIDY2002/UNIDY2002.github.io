@@ -12,20 +12,20 @@
 
   <link rel="shortcut icon" href="/images/favicon.png">
   <link rel="alternate" href="/atom.xml" title="Timeline">
-  <meta name="description" content="Test!">
+  <meta name="description" content="The article has been encrypted, please enter your password to view.">
 <meta name="keywords" content="测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="my-first-blog">
 <meta property="og:url" content="https:&#x2F;&#x2F;unidy2002.github.io&#x2F;2019&#x2F;11&#x2F;26&#x2F;my-first-blog&#x2F;index.html">
 <meta property="og:site_name" content="Timeline">
-<meta property="og:description" content="Test!">
+<meta property="og:description" content="The article has been encrypted, please enter your password to view.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-26T08:35:59.116Z">
+<meta property="og:updated_time" content="2019-11-26T09:08:27.140Z">
 <meta name="twitter:card" content="summary">
 
   <meta name="format-detection" content="telephone=no,email=no">
   <meta name="theme-color" content="#9C27B0">
-  <meta name="description" content="Test!">
+  <meta name="description" content="The article has been encrypted, please enter your password to view.">
   <meta name="keywords" content=",测试">
 
   <meta name="mobile-web-app-capable" content="yes">
@@ -39,7 +39,7 @@
 
   
     <meta property="article:published_time" content="Tue Nov 26 2019 16:14:36 GMT+0800">
-    <meta property="article:modified_time" content="Tue Nov 26 2019 16:35:59 GMT+0800">
+    <meta property="article:modified_time" content="Tue Nov 26 2019 17:08:27 GMT+0800">
   
 
   
@@ -139,7 +139,7 @@
 
   <div class="mdui-list" mdui-collapse="{accordion: true}">
     
-      <a href="/tags" class="mdui-list-item mdui-ripple">占位</a>
+      <a href="/Nothing" class="mdui-list-item mdui-ripple">占位</a>
     
     <div class="mdui-collapse-item">
       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
@@ -160,7 +160,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-1.png" style="max-height: 240px;">
+      <img src="/images/random/material-11.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">my-first-blog</div>
@@ -173,11 +173,20 @@
       </div>
     </header>
     <div class="mdui-card-content mdui-typo">
-      <p>Test!</p>
-<a id="more"></a>
-
-<p>more tests.</p>
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div id="hbe-security">
+  <div class="hbe-input-container">
+  <input type="password" class="hbe-form-control" id="pass" placeholder="Please enter the password to read the blog." />
+    <label for="pass">Please enter the password to read the blog.</label>
+    <div class="bottom-line"></div>
+  </div>
+</div>
+<div id="decryptionError" style="display: none;">Incorrect Password!</div>
+<div id="noContentError" style="display: none;">No content to display!</div>
+<div id="encrypt-blog" style="display:none">
+U2FsdGVkX1+isje3UVH+snVNC4H4eKMLAYeLpo72EbULiVrJmpZM8+X9AszgDzi3z9jQgQGXPyJiMODhAmNXksVinPBWPOwuXTtnOOdqqsgujFnTzpJi5kyEfwBNzIhsQcwP9vwLEoST4SjCcMjrNwsfmyAd0+IseMpBqFDw1S763+y/PkYKmMm9xs9tgvhwDSPdlbnMebVMI+gwQ6bDmw==
+</div>
+<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
       <blockquote class="mdui-m-t-5">
         
           <strong>No</strong><br>
