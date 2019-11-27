@@ -120,7 +120,7 @@ body.mdui-appbar-with-toolbar.mdui-appbar-with-tab-larger {
   font-style: inherit;
 }
 
-/* Avatar Animation */
+/* Avatar Animation: Unfavored feature */
 img.avatar-animation {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -132,9 +132,9 @@ img.avatar-animation {
 }
 
 img.avatar-animation:hover {
-  -webkit-transform: rotate(360deg);
+  /*-webkit-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
-  transform: rotate(360deg);
+  transform: rotate(360deg);*/
 }
 
 /* Sidebar Archives Style */
