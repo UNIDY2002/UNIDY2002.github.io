@@ -21,7 +21,7 @@
 <meta property="og:description" content="热衷于安利JetBrains家的产品……">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;unidy2002.github.io&#x2F;images&#x2F;public&#x2F;IntroToCLion&#x2F;001.png">
-<meta property="og:updated_time" content="2019-11-30T15:53:48.375Z">
+<meta property="og:updated_time" content="2019-12-01T03:38:16.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;unidy2002.github.io&#x2F;images&#x2F;public&#x2F;IntroToCLion&#x2F;001.png">
 
@@ -41,7 +41,7 @@
 
   
     <meta property="article:published_time" content="Thu Nov 28 2019 13:46:44 GMT+0800">
-    <meta property="article:modified_time" content="Sat Nov 30 2019 23:53:48 GMT+0800">
+    <meta property="article:modified_time" content="Sun Dec 01 2019 11:38:16 GMT+0800">
   
 
   
@@ -266,10 +266,8 @@
 <p>如果需要停用/卸载TabNine，屏幕左上角<code>File-&gt;Settings-&gt;Plugins-&gt;TabNine-&gt;Disable/Uninstall</code>。</p>
 <hr>
 <h2 id="技巧与注意事项"><a href="#技巧与注意事项" class="headerlink" title="技巧与注意事项"></a>技巧与注意事项</h2><ol>
-<li><p>CLion的代码以项目为单位，一个项目中可以有很多很多文件，它们之间可以相互引用。但切记：<strong>正常情况下，一个项目中<code>main</code>函数只允许有一个</strong>。也就是说如果你完成了一道作业题想做下一道，不要在同一个项目中新建另一个cpp文件（并放入另一道题的<code>main</code>），要么重开一个项目，要么直接把上一道题的代码清空（显然后面这种方式更快捷，也更省空间）。</p>
-<blockquote>
-<p>坦诚地说，因为无论代码内容有多少，CLion都会生成一个完整的项目文件，所以如果只是为了完成一些小型程序而使用CLion，确实比较浪费电脑资源。不过采用直接清空上一份代码的方式可以规避这一困境，而且CLion用起来真的舒服。</p>
-</blockquote>
+<li><p>CLion的代码以项目为单位，一个项目中可以有很多很多文件，它们之间可以相互引用。因此，坦诚地说，如果你只是为了完成<strong>一些</strong>小型程序而使用CLion，确实有点浪费电脑资源。</p>
+<p>在这里，提供两种方案。一个，是如果这段代码只是用于测试，以后再也不会用了，那就<strong>把代码清空，不用再建新的项目</strong>。另一个，就是如果你还想保留当前的代码，那就<strong>把当前文件复制到项目中的另一个地方，当做备份，同样不用建新的项目</strong>。（复制粘贴的操作详见第4条。）</p>
 </li>
 <li><p>熟练运用组合键<code>Ctrl+Alt+L</code>。它可以将你的代码格式化，增强代码可读性。（像我现在已经敲几行就整理一下代码了……简直过于方便……）</p>
 </li>
@@ -285,9 +283,15 @@
 <p>利用好Warning提示可以有效地避免一些低级错误。试着在IDE中粘贴以下代码（不用去运行），看看它给出了哪些Warning(s)。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; m;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; n * m &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">culculate</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a + b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    foo(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> s;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">10</span>][<span class="number">10</span>] = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; a[i][j] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">8</span>;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//Do something but forget to update the variable `k`</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> bar[<span class="number">5</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">9</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (bar[i] = <span class="number">4</span>)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (flag)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"true"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    culculate(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"The end."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>左侧的项目文件结构窗口如果不需要用，可以点击<code>-</code>关掉。不过如果想把它再开出来，双击屏幕上方的文件路径条（例如<code>HelloWorld&gt;main.cpp</code>）即可。（当然，单击路径条也有相应的功能。）</p>
+<li><p>当你的项目中<strong>有多个文件需要管理</strong>时，屏幕上方的文件路径条（例如<code>HelloWorld&gt;main.cpp</code>）可以比较简便地实现一些功能。点击一个文件夹（例如<code>HelloWorld</code>），你可以<strong>查看这个文件夹下的其他文件或子文件夹</strong>。右击一个文件夹或文件（例如<code>main.cpp</code>），你可以进行<strong>新建文件、复制粘贴文件、重命名文件、删除文件</strong>等更多操作。</p>
+<blockquote>
+<p>我们当然可以直接使用Windows系统的文件资源管理器来复制粘贴重命名，为什么还要用CLion进行这些操作呢？</p>
+<p>设想，当你的项目中有多个相互关联的文件时，手动修改文件名等信息，难以保证其它用到这个文件的代码都在相应的位置得到更正。而使用CLion进行这些操作，IDE会自动找寻其它用到这个文件的位置，并进行调整和修改，这样就保证了项目的安全性。</p>
+</blockquote>
 </li>
-<li><p>屏幕最左下角的那个按钮可以显示拓展功能框。不过一般的用途是，如果一不小心把输出窗口关掉了，想再开出来，鼠标悬停在上面，点<code>Run</code>。<del>（前提是你得要先run过一遍当前的代码。）</del></p>
+<li><p>左侧的项目文件组织窗口同样可以用于文件管理，并且更加直观全面。不过，平时不常用的时候，可以点击<code>-</code>关掉。如果想把它再开出来，双击屏幕上方的文件路径条即可。</p>
+</li>
+<li><p>屏幕最左下角的那个按钮可以显示拓展功能框。不过比较多的用途是，如果一不小心把输出窗口关掉了，想再开出来，鼠标悬停在上面，点<code>Run</code>。<del>（前提当然是你得要先run过一遍当前的代码。）</del></p>
 </li>
 <li><p>如果想要使用Windows系统自带的黑框运行程序，或者是想找到项目生成的<code>.exe</code>文件，在哪找呢？在文件资源管理器中找到你这个项目代码的位置，接着找到<code>cmake-build-debug</code>文件夹，里面就能找到那个<code>.exe</code>文件了。</p>
 </li>
@@ -299,7 +303,7 @@
 <p>JetBrains：从入门到破产</p>
 </blockquote>
 <p><del>（因为你可能会为了提升JetBrains产品的使用体验而去买很多很多内存条……反正我还没这么干过）</del></p>
-<p>JetBrains家的产品还有更大的一个坏处，就是一旦用了，就再也不想用其他家的IDE了，所谓</p>
+<p>JetBrains家的产品还有一个更大的坏处，就是一旦用了，就再也不想用其他家的IDE了，所谓</p>
 <blockquote>
 <p>JetBrains：从入门到上瘾</p>
 </blockquote>
