@@ -1,10 +1,10 @@
-<scheme name="Darcula copy" version="142" parent_scheme="Darcula">
+<scheme name="Splendid" version="142" parent_scheme="Darcula">
   <metaInfo>
     <property name="created">2019-11-30T00:27:31</property>
     <property name="ide">CLion</property>
     <property name="ideVersion">2019.2.5.0.0</property>
     <property name="modified">2019-11-30T00:27:43</property>
-    <property name="originalScheme">Darcula copy</property>
+    <property name="originalScheme">Splendid</property>
   </metaInfo>
   <attributes>
     <option name="OC.BLOCK_COMMENT">
