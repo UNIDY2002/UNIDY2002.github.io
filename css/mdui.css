@@ -5310,7 +5310,7 @@ body.mdui-locked {
 }
 .mdui-typo caption,
 .mdui-typo th {
-  text-align: left;
+  text-align: center;
 }
 .mdui-typo q:before,
 .mdui-typo q:after {
