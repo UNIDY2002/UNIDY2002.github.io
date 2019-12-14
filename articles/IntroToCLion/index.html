@@ -21,7 +21,7 @@
 <meta property="og:description" content="热衷于安利JetBrains家的产品……">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;unidy2002.github.io&#x2F;images&#x2F;public&#x2F;IntroToCLion&#x2F;001.png">
-<meta property="og:updated_time" content="2019-12-12T01:46:20.474Z">
+<meta property="og:updated_time" content="2019-12-13T15:28:39.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;unidy2002.github.io&#x2F;images&#x2F;public&#x2F;IntroToCLion&#x2F;001.png">
 
@@ -41,7 +41,7 @@
 
   
     <meta property="article:published_time" content="Thu Nov 28 2019 00:00:00 GMT+0800">
-    <meta property="article:modified_time" content="Thu Dec 12 2019 09:46:20 GMT+0800">
+    <meta property="article:modified_time" content="Fri Dec 13 2019 23:28:39 GMT+0800">
   
 
   
@@ -204,11 +204,11 @@
 <p>注：本文适用于Windows用户，对于Mac和Linux用户情形可能会有或大或小的差异。</p>
 </blockquote>
 <hr>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p><strong>如果你的电脑上还没有MinGW，需要<a href="https://sourceforge.net/projects/mingw/files/" target="_blank" rel="noopener">下载</a>MinGW安装包。并且，安装的时候留个心，记一下自己把MinGW安装到什么位置了（后面配置会用到）。</strong></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>如果你的电脑上还没有MinGW，需要<a href="https://sourceforge.net/projects/mingw/files/" target="_blank" rel="noopener">下载</a>MinGW安装包。并且，安装的时候留个心，记一下自己把MinGW安装到什么位置了（后面配置会用到）。</p>
+<p><strong>然而，从MinGW官方下载地址安装MinGW过于魔鬼（我的个人体验如此），所以推荐使用“迂回战术”——先<a href="https://bloodshed-dev-c.en.softonic.com/" target="_blank" rel="noopener">安装Dev-C++</a>（假如你没装过的话），它会顺带安装好MinGW，具体的位置应该在Dev-C++的安装目录下。</strong></p>
 <blockquote>
 <p>如何简易判断电脑上有没有MinGW？</p>
 <p>打开cmd，输入命令<code>gcc -v</code>，如果可以打印出版本信息，就表示已有MinGW。</p>
-<p><strong>另外，一般来说，如果你的电脑上有Dev-C++，MinGW应该已经跟着顺带安装好了。</strong></p>
 </blockquote>
 <p>下面安装CLion。</p>
 <p>CLion是一款收费产品，不过对学生免费——只要你有自己的学校邮箱。所以，首先你要<a href="https://www.jetbrains.com/shop/eform/students" target="_blank" rel="noopener">申请一个学生账号</a>。</p>
@@ -279,7 +279,7 @@
 <li><p>CLion的代码以项目为单位，一个项目中可以有很多很多文件，它们之间可以相互引用。因此，坦诚地说，如果你只是为了完成<strong>一些</strong>小型程序而使用CLion，确实有点浪费电脑资源。</p>
 <p>在这里，提供两种方案。一个，是如果这段代码只是用于测试，以后再也不会用了，那就<strong>把代码清空，不用再建新的项目</strong>。另一个，就是如果你还想保留当前的代码，那就<strong>把当前文件复制到项目中的另一个地方，当做备份，同样不用建新的项目</strong>。（复制粘贴的操作详见第4条。）</p>
 </li>
-<li><p>熟练运用组合键<code>Ctrl+Alt+L</code>。它可以将你的代码格式化，增强代码可读性。（像我现在已经敲几行就整理一下代码了……简直过于方便……）</p>
+<li><p><strong>熟练运用组合键<code>Ctrl+Alt+L</code>。</strong>它可以将你的代码格式化，增强代码可读性。（像我现在已经敲几行就整理一下代码了……简直过于方便……）</p>
 </li>
 <li><p>重视一下IDE给出的Warning(s)（虽然绝不以消除所有Warning(s)为目标）。CLion给的Warning质量还是普遍比较高的。首先，它会在右侧的滚动条处以黄色表示出来，方便你看看哪里还有需要注意的地方。然后，不同级别和类型的Warning会用不同的方式在代码中呈现出来<strong>（有些地方的代码会变成灰色，有些则是下划线或者高亮出来）</strong>，鼠标悬浮在上方就能看到具体的提示；当光标在Warning处时，使用组合键<code>Alt+Enter</code>可以看到一些修改建议（不过这些修改建议不一定管用，往往还是需要人工修改的）。<code>Clang-Tidy</code>类型的Warning可以选择忽略。</p>
 <blockquote>
@@ -373,7 +373,7 @@
     <div class="vcomment"></div>
 <script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="/lib/Valine.min.js"></script>
 <script>
   var GUEST_INFO = ['nick', 'mail', 'link'];
   var guest_info = 'nick,mail'.split(',').filter(function (item) {
