@@ -89,6 +89,17 @@
     
     
     
+    <entry>
+      <title>C++快速入门（实验版）</title>
+      <link href="/cpp/index.html"/>
+      <url>/cpp/index.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>暂无……</p>]]></content>
+      
+    </entry>
+    
+    
+    
     
     
     
@@ -103,17 +114,6 @@
       <url>/downloads/tutorials/cpp/index.html</url>
       
         <content type="html"><![CDATA[<h2 id="煞有其事的教程介绍……"><a href="#煞有其事的教程介绍……" class="headerlink" title="煞有其事的教程介绍……"></a>煞有其事的教程介绍……</h2><p>首先是<a href="cpp_tutorial_experimental.zip">下载链接</a>。</p><p>先简单说一下为什么会有这份教程吧……</p><p>其实我也不知道为啥，就是高中毕业后那个暑假心血来潮想写一份C++快速教程，然后就写了一点。然而当时flag立得过于离谱了，想要上册下册增值包一起出完，但最后么……</p><hr><p>网络上C++的教程有很多，也有不少质量非常高的，那我写这份教程的意义何在呢？</p><p><strong>我想，我这份教程最大的特点在于，既尽量遵循一个新手学习的自然过程，又能够在最短的时间内让你快速上手，且通过一些习题，让你真正有能力写出一些有点意义的代码。</strong>这三点，都是我目前所看到的其它教程稍有欠缺的地方。</p><p><del>然而，讲道理，我也没有那么多自信，说自己写的这份教程就真的有多么多么好……</del></p><hr><p>距离上次打开这份教程，也有四五个月了吧。要不是前几天开了个网站，我也没想到会把它重新翻出来。</p><p>然而，经过这半个多学期的大学学习，我对C++的认识也在不断提升。<strong>我也渐渐意识到自己许多旧有的观念都是不合适的，甚至是有隐患的。可当我回想起这份教程，却发现自己竟然也传达了这样一些不太合适的内容。</strong></p><p>所以，这份教程也应当有所改进。不过，由于人类的某种本质，我暂时并不想修正之前的教程。因此，我也只能说当前的这一版本是实验版的。况且，还有很大一部分内容我还没写呢……</p><p>此外，既然我把这份教程放到网上了，按理应该也把它同步做成网页版。不过这个嘛……<del>还是人类的某种本质（x）</del></p><hr><p>所以，大致先列一个ToDo吧……</p><ul><li>修正旧教程中一些不合适的内容</li><li>将教程同步做成网页版</li><li>写完这份教程</li><li>……</li></ul><p>（To-Do List：程序员最大的谎言）</p><p>先逃了（</p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>C++快速入门（实验版）</title>
-      <link href="/cpp/index.html"/>
-      <url>/cpp/index.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>暂无……</p>]]></content>
       
     </entry>
     
