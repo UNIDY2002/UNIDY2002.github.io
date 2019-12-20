@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="UNIDY&#39;s Timeline">
 <meta property="og:description" content="前言欢迎使用本教程！ 本教程是一份快速入门教程，旨在让您用最短的时间掌握大部分C++基本语法知识。 祝您学习愉快！ 和我一起改进这份教程~该教程是实验版，仍有不少缺陷和编写不当的地方，甚至会有一些谬误。 在此，邀请您和我一起来改进这份教程。我在每一节的最后都放有反馈链接，是一份很简单的调查问卷。当然，若您对本教程某一部分的编排有更好的建议，或是认为某一节的讲解难以理解，抑或是发现了内容的错误，也可">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-19T00:45:18.405Z">
+<meta property="og:updated_time" content="2019-12-20T08:59:39.518Z">
 <meta name="twitter:card" content="summary">
 
   
@@ -156,6 +156,7 @@
   <link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
+    
     <header class="mdui-card-media">
       <img src="/images/random/material-14.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
@@ -181,6 +182,7 @@
         
       </div>
     </header>
+	
     <div class="mdui-card-content mdui-typo">
       <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>欢迎使用本教程！</p>
 <p>本教程是一份快速入门教程，旨在让您用最短的时间掌握大部分C++基本语法知识。</p>
@@ -193,8 +195,8 @@
 <p>本教程的作者为UNIDY，是一个只会在屏幕上打出随机字符的垃圾程序猿。但是他好歹稍微懂一些C++的基本语法，虽然自己做不出什么成果来，但是还是希望能够让更多朋友走进C++的大门。</p>
 <p>C++与C语言不同，相传不同在两个加号上。其中一个加号，是指<code>Standard Template Library</code>（<strong>标准模板库</strong>，简称<code>STL</code>），提供了大量好用的函数库与模块；另一个加号，是指<code>Object Oriented Programming</code>（<strong>面向对象的程序设计</strong>，简称<code>OOP</code>），体现了C++作为面向对象的中级语言的特性，这一特性将随着你对C++学习的逐步深入有所体会。简而言之，C++是对C语言的改进。</p>
 <h3 id="基础介绍"><a href="#基础介绍" class="headerlink" title="基础介绍"></a>基础介绍</h3><p>在你进行程序设计前，需要先认识两个工具：<strong>集成开发环境</strong>（<code>Integrated Development Environment</code>，简称<code>IDE</code>）和<strong>编译器</strong>（<code>Compiler</code>）。</p>
-<p>IDE是你编写代码的环境，称之为<strong>集成</strong>的，是因为它集合代码编辑器、编译器、调试器和图形用户界面于一体，集成了编写、解析、编译、调试等功能。<strong>不同的IDE价格不同，功能各异，使用体验也因而有所差异。</strong>有的IDE只是简单地实现了语法标注、自动缩进等功能，但有些IDE内置有良好的<strong>类型推导、代码补全</strong>等机制。<strong>选择哪一款IDE，取决于你的应用需求、使用习惯和经费因素<a href="有些IDE提供学生版，可以凭学生证获得优惠。有些学校统一为学生批量订购IDE，学生可免费试用。">^1</a>。</strong></p>
-<p>编译器的主要功能是将一种（高级）语言转换为另一种（低级）语言，例如C++编译器能够将你所编写的代码（<code>*.cpp</code>）转化为机器可以识别的二进制码，通常为一个可执行文件，运行这个可执行文件，即可实现代码的机器运行。</p>
+<p>IDE是你编写代码的环境，称之为<strong>集成</strong>的，是因为它集合了程序开发过程中需要的各种功能。<strong>不同的IDE价格不同，功能各异，使用体验也因而有所差异。</strong>有的IDE只是简单地实现了语法标注、自动缩进等功能，但有些IDE内置有良好的<strong>类型推导、代码补全</strong>等机制。<strong>选择哪一款IDE，取决于你的应用需求、使用习惯和经费因素<a href="有些IDE提供学生版，可以凭学生证获得优惠。有些学校统一为学生批量订购IDE，学生可免费试用。">^1</a>。</strong></p>
+<p><strong>编译器的主要功能是将一种（高级）语言转换为另一种（低级）语言</strong>，例如C++编译器能够将你所编写的代码（<code>*.cpp</code>）转化为机器可以识别的二进制码，通常为一个可执行文件，运行这个可执行文件，即可实现代码的机器运行。</p>
 <p><strong>编写并运行一个小型C++程序，一般的流程是：写代码→编译→运行→反复调试（除非你能一遍写对）。</strong></p>
 <h3 id="适用读者"><a href="#适用读者" class="headerlink" title="适用读者"></a>适用读者</h3><p>本教程适用于对编程感兴趣，希望通过C++入门或借助算法辅助自己研究问题的读者。</p>
 <p><strong>如果你符合以下描述，那么你很适合阅读本教程：</strong></p>
@@ -297,8 +299,7 @@
     
   </div>
   <div class="mdui-p-y-1 mdui-text-center">
-    Copyright &copy; 2019 - 2019 UNIDY<br>
-    Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a>
+    &copy; 2019 | <i class="fa fa-user"></i> UNIDY
     
   </div>
 </footer>
