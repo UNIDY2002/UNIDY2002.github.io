@@ -31,10 +31,10 @@
 <meta property="og:site_name" content="UNIDY&#39;s Timeline">
 <meta property="og:description" content=".scrollblock{         position: relative;         margin: 0;         width: 100%;         padding-top: 50px;         padding-bottom: 50px;         text-align: center;     }     .block-welcome {">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;manual&#x2F;git-guide&#x2F;img&#x2F;arrow.png">
-<meta property="og:updated_time" content="2019-12-20T12:39:16.237Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;unidy2002.github.io&#x2F;articles&#x2F;intro-to-pycharm&#x2F;arrow.png">
+<meta property="og:updated_time" content="2019-12-21T07:50:06.440Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;www.runoob.com&#x2F;manual&#x2F;git-guide&#x2F;img&#x2F;arrow.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;unidy2002.github.io&#x2F;articles&#x2F;intro-to-pycharm&#x2F;arrow.png">
 
   
 
@@ -192,7 +192,7 @@
     .block-setup h1 {
         font-size: 36px;
     }
-    .block-setup a {
+    .block-setup a.simple {
         color: lightblue !important;
     }
     .block-setup a.big {
@@ -212,6 +212,23 @@
         border-bottom: none !important;
         background-color: #003466 !important;
     }
+    .block-setup a.normal {
+        color: white !important;
+        font-size: 15px;
+        font-weight: normal;
+        font-style: normal;
+        background-color: #FF4081;
+        padding: 8px 12px !important;
+        margin: 6px !important;
+        border-radius: 10px;
+        text-decoration: none;
+        line-height: 43px !important;
+    }
+    .block-setup a.normal:hover,
+    .block-setup a.normal:focus {
+        border-bottom: none !important;
+        background-color: #ff80ab !important;
+    }
     .block-gugugu {
         background-color: lightblue;
         color: white;
@@ -219,18 +236,43 @@
     .block-gugugu h2 {
         font-size: 25px;
     }
+    .mdui-dialog-setup {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+    .mdui-dialog-setup h3 {
+        font-size: 28px !important;
+    }
+    .mdui-dialog-setup p {
+        font-size:15px !important;
+        background-color: white !important;
+        line-height: 22px !important;
+    }
+    /*.mdui-dialog-adjust {
+        left: 240px !important;
+        position: fixed !important;
+    }
+    @media (max-width:1023px){
+        .mdui-dialog-adjust:not(.mdui-sidebar-closed) {
+            left: 240px !important;
+        }
+        .mdui-dialog-adjust:not(.mdui-sidebar-open) {
+            left: 0 !important;
+        }
+    }*/
 </style>
 
 <div class="scrollblock block-welcome">
     <h1>30分钟入门PyCharm</h1>
-    <h2>JetBrains家的产品配置根本不可怕</h2>
+    <h2>JetBrains家产品的配置根本不用怕</h2>
     <p>
         作者：UNIDY<br>
         设计灵感来源：<a href="https://www.runoob.com/manual/git-guide/" target="_blank">https://www.runoob.com/manual/git-guide/</a><br>
         实际入门时间可能与下载和安装速度有关<br>
-        本文适用于Windows用户，对于Mac和Linux用户情形可能会有或大或小的差异
+        本文适用于Windows用户，对于Mac和Linux用户情形可能会有或大或小的差异<br>
+        尚未进行网页的移动端适配（可能这辈子也不会做了……）
     </p>
-    <img src="https://www.runoob.com/manual/git-guide/img/arrow.png" alt>
+    <img src="https://unidy2002.github.io/articles/intro-to-pycharm/arrow.png" alt>
 </div>
 <div class="scrollblock block-setup">
     <h1>准备工作……</h1>
@@ -241,18 +283,29 @@
         <a href="/404.html" target="_blank" class="big">Python for Mac</a><br>
         <a href="/404.html" target="_blank" class="big">PyCharm for Linux</a>
         <a href="/404.html" target="_blank" class="big">Python for Linux</a><br>
-        <a href="/articles/about-toolbox" target="_blank" class="big">Toolbox快捷通道</a><br></p>
     <p>
-        Python指Python的解释器以及图形界面等，如果之前有了就不用装了<br>
-        Toolbox只安装PyCharm，不安装Python解释器<br>
-        此处提供的PyCharm安装链接是社区版，专业版请前往<a href="https://www.jetbrains.com/pycharm/download/" target="_blank" class="simple">官网下载</a>
+        PyCharm和Python可同时下载安装<br>
+        Python指Python解释器及图形界面等，如有就不用装了<br>
+        <a href="javascript:" class="simple" mdui-dialog="{target: '#setup'}">我是CS专业的学生</a>
     </p>
+    <div class="mdui-dialog mdui-dialog-setup" id="setup" style="display: none; top: 61px; height: 488px;">
+      <h3>你可以选择使用PyCharm专业版</h3>
+      <p><a href="/articles/intro-to-pycharm/features.png" target="_blank">按需选择——功能比较</a></p>
+      <p>PyCharm专业版是付费产品，但对学生免费<br>
+      如果你之前没有申请过JetBrains学生账号<br>
+      <a href="https://www.jetbrains.com/shop/eform/students" target="_blank">点击链接申请</a></p>
+      <p>
+        PyCharm专业版下载链接（不含Python）<br>
+        <a href="/404.html" target="_blank" class="normal">Windows</a>
+        <a href="/404.html" target="_blank" class="normal">Mac</a>
+        <a href="/404.html" target="_blank" class="normal">Linux</a><br>
+        你也可以选择回退到教程页面，继续下载PyCharm社区版
+      </p>
+    </div>
 </div>
 <div class="scrollblock block-gugugu">
     <h2>咕……咕咕咕……</h2>
 </div>
-
-
       
         <blockquote class="mdui-m-t-5">
           

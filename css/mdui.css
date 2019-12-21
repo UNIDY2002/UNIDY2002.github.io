@@ -12716,7 +12716,7 @@ body.mdui-loaded .mdui-drawer {
   max-height: 100px;
   position: relative;
   overflow: hidden;
-  &:after {
+  /*&:after {
     content: '加载中……';
     position: absolute;
     top: 0;
@@ -12729,13 +12729,13 @@ body.mdui-loaded .mdui-drawer {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  }*/
 }
 
 .mermaid[data-processed]{
   max-height: none;
   overflow: auto;
-  &:after {
+  /*&:after {
     content: none;
-  }
+  }*/
 }
