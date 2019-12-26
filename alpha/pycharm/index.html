@@ -32,7 +32,7 @@
 <meta property="og:description" content=".scrollblock{         position: relative;         margin: 0;         width: 100%;         padding-top: 50px;         padding-bottom: 50px;         text-align: center;     }     .block-welcome {">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;unidy2002.github.io&#x2F;articles&#x2F;intro-to-pycharm&#x2F;arrow.png">
-<meta property="og:updated_time" content="2019-12-22T14:30:06.665Z">
+<meta property="og:updated_time" content="2019-12-26T06:37:57.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;unidy2002.github.io&#x2F;articles&#x2F;intro-to-pycharm&#x2F;arrow.png">
 
@@ -320,6 +320,22 @@
     .block-DIY a.simple {
         color: #21add4 !important;
     }
+    .block-TabNine {
+        background-color: #CC4037 !important;
+        color: #4C0D09 !important;
+        font-size: 16px !important;
+    }
+    .block-TabNine code {
+        background-color: black !important;
+        color: white !important;
+    }
+    .block-TabNine code.big {
+        font-size: 22px !important;
+        line-height: 38px !important;
+    }
+    .block-TabNine a {
+        color: #ff501f !important;
+    }
     .block-ending {
         background-color: #FFC19F;
         color: #CC4037;
@@ -331,9 +347,6 @@
     .block-ending p {
         font-size:18px !important;
         line-height: 28px !important;
-    }
-    .block-ad {
-
     }
 </style>
 
@@ -475,19 +488,32 @@
 </div>
 <div class="scrollblock block-DIY">
     <h1>DIY时间到！</h1>
-    <p>该部分非必须<br>
+    <p>以下两部分非必须<br>
     所以不计入那30分钟（23333</p>
     <p>左上角找到<br>
     <code>File->Settings->Editor->Font</code><br>
     右边第一个<code>Font</code>是英文字体，推荐Consolas<br>
-    <code>Fallback font</code>是非英文字体，可以选KaiTi等<br>
+    <code>Fallback font</code>是非英文字体，挑个自己喜欢的<br>
     （也都只是推荐，具体怎么调，完全由你而定）</p>
     <p>然后回到左边，找到<code>Color Scheme->Python</code><br>
     快乐的调色环节完全由你掌控！<br></p>
+</div>
+<div class="scrollblock block-TabNine">
     <p>调色完成后，回到左边，收起<code>Editor</code><br>
     然后进入<code>Plugins</code>，搜索<code>TabNine</code><br>
     <code>Install</code>这款超棒的智能补全插件<br>
     让它助你一臂之力吧！</p>
+    <p>不过需要注意的是<br>
+    TabNine的深度学习功能只有30天的试用期<br>
+    好在专业版目前免费<br>
+    TabNine安装完成后，<a href="https://tabnine.com/beta_signup" target="_blank">点击链接</a>申请专业版<br>
+    你会收到一封含有注册码的邮件</p>
+    <p>回到PyCharm<br>
+    在任一打开的代码文件的任一位置直接输入<br>
+    <code class="big">TabNine::config</code><br>
+    （不要复制粘贴）<br>
+    在跳出的页面中，找到<code>Activation key</code>一栏<br>
+    粘贴入注册码即可~</p>
 </div>
 <div class="scrollblock block-ending">
     <h2>还想说的是……</h2>
@@ -497,7 +523,7 @@
     假如一不小心把那个窗口关掉了<br>
     双击File...Edit...下面一排的路径条就能召唤回来~</p>
     <h1>最后的最后，牢记这个快捷键</h1>
-    <h2>（ <i class="fa fa-windows"></i> / <i class="fa fa-linux"></i> ）<code>Ctrl+Shift+L</code><br>
+    <h2>（ <i class="fa fa-windows"></i> / <i class="fa fa-linux"></i> ）<code>Ctrl+Alt+L</code><br>
     （ <i class="fa fa-apple"></i> ）<code>⌘⌥L</code></h2>
     <p>它可以帮你整理代码<br>
     增强代码可读性</p>
@@ -506,7 +532,7 @@
     以防PyCharm整理代码时出现意外<br>
     （不过万一真出意外了，撤销回去就好~）</p>
 </div>
-<div class="scrollblock block-ad">
+<div class="scrollblock">
     <h2>如果想学习更多Python的知识</h2>
     <h3>欢迎查看我写的快速入门教程！</h3>
     <p>然而并没有这种东西……</p>
