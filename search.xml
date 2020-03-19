@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>关于#include我想说的</title>
+      <link href="/articles/include/"/>
+      <url>/articles/include/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>本文首发于<a href="https://github.com/thunlp/OOP-THU/issues/39">github.com/thunlp/OOP-THU/issues/39</a></p></blockquote><p><code>#include</code><strong>其实并不是一个非常聪明的机制</strong>——直接全文复制，也不管包含了多少用不着的代码；你也不甚清楚你包含的代码中有什么牛鬼蛇神，会不会碰巧撞上了<code>math.h</code>中的<code>y1</code>；假如处理不当，还可能惹来重复定义等令人头秃的麻烦……</p><p>在此，我列举一些初次深入了解<code>#include</code>时可能遇到的困扰，并加以说明。</p><hr><h1 id="套娃"><a href="#套娃" class="headerlink" title="套娃"></a>套娃</h1><p>事情开始于这样的代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"B.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> &#123;</span></span><br><span class="line">    B b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"A.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &#123;</span></span><br><span class="line">    A* a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"A.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Do your thing...</span></span><br></pre></td></tr></table></figure><p>我们在类<code>A</code>中设置了<code>B</code>类型的成员变量，因此需要<code>#include &quot;B.h&quot;</code>。<strong>然而，出于某种需求，我们还希望在类<code>B</code>中保留对应的<code>A</code>的指针，因此还需<code>#include &quot;A.h&quot;</code>。</strong>看起来顺理成章。</p><p>可是，当我们编译时，g++报了错：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">B.h:6:5:error: &apos;A&apos; does not name a type</span><br><span class="line">     A* a;</span><br><span class="line">     ^</span><br></pre></td></tr></table></figure><p>是在<code>B.h</code>中报了找不到类型<code>A</code>的错。</p><p><strong>奇怪，我们明明在<code>B.h</code>中包含了<code>A.h</code>啊……</strong></p><hr><h2 id="探因"><a href="#探因" class="headerlink" title="探因"></a>探因</h2><p>我们将目光聚焦到<code>A.h</code>上——原来，<code>A.h</code>标上了<code>#pragma once</code>。也就是说，假如<code>A.h</code>之前已经被包含过了，那么这次就不会再包含它了。<strong>再一看<code>main.cpp</code>，确实，<code>A.h</code>早已被包含过了。</strong></p><p><strong>破案了！</strong></p><p>好，我们将<code>A.h</code>中的<code>#pragma once</code>去掉总行了吧？还不行，这次又报找不到类型<code>B</code>了。</p><p>那就把<code>B.h</code>中的<code>#pragma once</code>也去掉吧……停下来！不然那编译器的报错……太美……</p><p>不过，至此，这背后的原因已可见端倪——<strong>套娃<code>include</code></strong>。C++的<code>include</code>最忌讳的就是套娃了。如果不加<code>#pragma once</code>等处理，则头文件就会永无止境地包含下去；如果加了，那你写代码时可能以为自己<code>include</code>过了，实际上却被编译器拦下了。</p><p><strong>总之，这种循环包含的行为是不可取的，在实际编程中应当避免。</strong></p><hr><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>那么，应当如何修改代码，才能既满足需求，又不出现套娃的现象呢？</p><p><strong>在动手之前，先想想，是否真的需要在<code>B</code>中保留<code>A</code>的指针。</strong>因为，这种情况的发生，很有可能意味着你的代码设计时<strong>耦合度有些高</strong>，才会剪不断理还乱。如果能重新设计代码，让<code>B</code>干脆不依赖<code>A</code>，那是最好的。</p><p>不过，如果这一需求不可避免呢？那也有办法：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>;</span>  <span class="comment">// 声明类A</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &#123;</span></span><br><span class="line">    A* a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>我们在<code>B.h</code>中不去<code>#include &quot;A.h&quot;</code>，而是<strong>声明<code>class A</code>，供<code>B</code>使用</strong>，具体的细节则在<code>A.h</code>中给出。这样，既免去了循环包含，又能够在类<code>B</code>中用到类<code>A</code>。</p><p>至此，“套娃”的问题暂告一段落。下面，再简单提一下<code>#pragma once</code>和<code>#ifndef...</code>的事。</p><hr><h1 id="重复定义"><a href="#重复定义" class="headerlink" title="重复定义"></a>重复定义</h1><p>我们知道，在C++中，对同一个名称，<strong>声明可以多次，但定义只能一次</strong>。为此，我们需要引入一些保证单次包含的机制，来防止因多次包含同一头文件而造成的重复定义。</p><p><code>#pragma once</code>和<code>#ifndef...</code>的用法，在课件上都有写到。这里，对使用过程中可能遇到的疑惑和误区简单说明一下。</p><h2 id="ifndef-XXX含义的理解"><a href="#ifndef-XXX含义的理解" class="headerlink" title="#ifndef XXX含义的理解"></a><code>#ifndef XXX</code>含义的理解</h2><p><code>#ifndef XXX</code>和<code>#endif</code>配套，可以理解为<code>if not defined XXX</code>，则……，<code>end if</code>。而在解析……所示的代码之前，需要先<code>#define XXX</code>，从而下次解析到这一头文件时，因为宏定义过<code>XXX</code>了，<code>ifndef</code>条件不满足，就不再解析……部分的代码了，从而保证了单次包含。</p><h2 id="ifndef-XXX插入的位置"><a href="#ifndef-XXX插入的位置" class="headerlink" title="#ifndef XXX插入的位置"></a><code>#ifndef XXX</code>插入的位置</h2><p>合理的使用方法，应当是<code>#ifndef XXX</code>和<code>#define XXX</code>置于文件的开头而<code>#endif</code>置于文件的末尾，这样才能保证整个文件只被包含一次。</p><p>我之前见到过这样的写法：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __HEADER__</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __HEADER__</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> &#123;</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>这就违背<strong>保证整个文件只被包含一次</strong>的初衷了。假如这一头文件被包含多次，那也会造成<code>Test</code>的重复定义。</p><p>（当然，我个人以为出现这样的错误也与课件上只给了用法没给示例有关。）</p><h2 id="pragma-once和-ifndef-的区别"><a href="#pragma-once和-ifndef-的区别" class="headerlink" title="#pragma once和#ifndef...的区别"></a><code>#pragma once</code>和<code>#ifndef...</code>的区别</h2><p><code>#pragma once</code>可以<strong>简单快捷地</strong>保证物理上的这一文件只被包含一次，不过缺点在于一些编译器可能不支持。（当然，越来越多的编译器已经支持这一功能了。）</p><p><code>#ifndef XXX</code>则是从代码层面保证单次包含，且类似写法可以在其它场合有一些灵活的运用。缺点在于<strong>你需要保证不同头文件的<code>XXX</code>不要撞车</strong>，否则也会导致预期之外的结果。（当然，许多IDE会为新建的<code>.h</code>文件自动加上<code>#ifndef...</code>等语句，可以省去不少麻烦。）</p><hr><h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>读到这里，或许你对<code>#include</code>的机制<del>更加不理解了</del>还有一些困惑。也许，你很想亲自看到，编译器对这些带#的语句到底做了些什么。</p><p>这时，<strong>我们来了解一下g++的预编译指令</strong>。例如：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -E main.cpp -o main.i</span><br></pre></td></tr></table></figure><p><code>-E</code>表示当前的任务是对<code>main.cpp</code>进行预编译。预编译的一个任务就是将这些带#的宏命令进行处理，比如<code>#include</code>的内容会在预编译时展开。这时，你就能看到那些头文件到底是谁先谁后了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 代码控 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>THUInfo踩坑记录（一）</title>
       <link href="/articles/thui-a-1/"/>
       <url>/articles/thui-a-1/</url>
@@ -149,9 +174,9 @@
       
         <tags>
             
-            <tag> JetBrains </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> JetBrains </tag>
             
         </tags>
       
@@ -168,6 +193,8 @@
     
     
     
+    
+    
     <entry>
       <title>C++快速入门（实验版）</title>
       <link href="/cpp/index.html"/>
@@ -176,8 +203,6 @@
         <content type="html"><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul><li><a href="1/">上册</a><ul><li>01 - 你好，世界！（Hello, world!）</li><li>02 - 二数之和（add）</li><li>03 - 二数之积（mul）</li><li>04 - 计价器（taxi）</li><li>05 - 素数判断（isprime）</li><li>06 - 哥德巴赫猜想（goldbach）</li><li>07 - 素数表（primetable）</li><li>08 - 选择排序（selection）</li><li>09 - 成绩排名（student）</li><li>10 - 分数（fraction）</li></ul></li><li>下册</li><li>增值包</li></ul>]]></content>
       
     </entry>
-    
-    
     
     
     
